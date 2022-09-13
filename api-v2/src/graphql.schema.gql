@@ -1,0 +1,381 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Account {
+  """Accounts's id"""
+  _id: String!
+
+  """category of Accounts"""
+  category: String!
+
+  """description of Accounts"""
+  description: String!
+
+  """name of Accounts"""
+  name: String!
+
+  """type of Accounts"""
+  type: String!
+}
+
+type AuthJWT {
+  """JWT authorization token 2"""
+  token: String!
+}
+
+type Contact {
+  """Contact's id"""
+  _id: String!
+
+  """Company's id"""
+  companyId: String!
+
+  """Created data"""
+  createdOn: String!
+
+  """Category of Contacts"""
+  name: String!
+
+  """Get transactions"""
+  transactions: [Transaction!]!
+
+  """Type of Contacts"""
+  type: String!
+
+  """Updated data"""
+  updatedOn: String
+
+  """Get user"""
+  user: User!
+}
+
+input CreateAccountInput {
+  """account's background color"""
+  bg: String!
+
+  """account's programming language logo URL"""
+  image: String!
+
+  """account's programming language"""
+  language: String!
+}
+
+input CreateContactInput {
+  """Related company"""
+  companyId: String!
+
+  """Contact name"""
+  name: String!
+
+  """Contact  type"""
+  type: String!
+}
+
+input CreateEntryInput {
+  """entry's background color"""
+  bg: String!
+
+  """entry's programming language logo URL"""
+  image: String!
+
+  """entry's programming language"""
+  language: String!
+}
+
+input CreateTransactionInput {
+  """Account's id"""
+  accountId: String!
+
+  """Amount"""
+  amount: Float!
+
+  """Contact's id"""
+  contactId: String!
+
+  """Credit"""
+  credit: Float!
+
+  """Debit"""
+  debit: Float!
+
+  """Transaction's description"""
+  description: String!
+
+  """Entry's id"""
+  entryId: String!
+
+  """Transaction's reference"""
+  reference: String!
+
+  """Task's id"""
+  taskId: String!
+
+  """Contact  type"""
+  type: String!
+}
+
+input CreateUserInput {
+  """user's email"""
+  email: String!
+
+  """user's last name"""
+  lastName: String!
+
+  """user's name"""
+  name: String!
+
+  """user's password"""
+  password: String!
+
+  """user's roles"""
+  roles: [String!]!
+}
+
+type Entry {
+  """description of Entries"""
+  Total: String!
+
+  """Entries's id"""
+  _id: String!
+
+  """name of Entries"""
+  companyId: String!
+
+  """description of Entries"""
+  creditTotal: String!
+
+  """description of Entries"""
+  debitTotal: String!
+
+  """description of Entries"""
+  description: String!
+
+  """category of Entries"""
+  reference: String!
+
+  """type of Entries"""
+  type: String!
+}
+
+type Mutation {
+  createAccount(createAccountInput: CreateAccountInput!): Account!
+  createContact(createContactInput: CreateContactInput!): Contact!
+  createEntry(createEntryInput: CreateEntryInput!): Entry!
+  createTransaction(createTransactionInput: CreateTransactionInput!): Transaction!
+  createUser(createUserInput: CreateUserInput!): User!
+  login(
+    """user's login email"""
+    email: String!
+
+    """user's login password"""
+    password: String!
+  ): AuthJWT!
+  registerUser(registerUserInput: RegisterUserInput!): User!
+  removeAccount(id: String!): Account!
+  removeContact(id: String!): Contact!
+  removeEntry(id: String!): Entry!
+  removeTransaction(id: String!): Transaction!
+  removeUser(id: String!): User!
+  updateAccount(updateAccountInput: UpdateAccountInput!): Account!
+  updateContact(updateContactInput: UpdateContactInput!): Contact!
+  updateEntry(updateEntryInput: UpdateEntryInput!): Entry!
+  updateTransaction(updateTransactionInput: UpdateTransactionInput!): Transaction!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  account(id: String!): Account!
+  accounts: [Account!]!
+  contact(id: String!): Contact!
+  contacts: [Contact!]!
+  entries: [Entry!]!
+  entry(id: String!): Entry!
+  transaction(id: String!): Transaction!
+  transactions: [Transaction!]!
+  user(id: String!): User!
+  users: [User!]!
+  whoAmI: User!
+}
+
+input RegisterUserInput {
+  """user's email"""
+  email: String!
+
+  """user's last name"""
+  lastName: String!
+
+  """user's name"""
+  name: String!
+
+  """user's password"""
+  password: String!
+}
+
+type Transaction {
+  """Transaction's id"""
+  _id: String!
+
+  """Get account"""
+  account: Account!
+
+  """Account's id"""
+  accountId: String!
+
+  """Amount of Transactions"""
+  amount: Float!
+
+  """Get contact"""
+  contact: Contact!
+
+  """Contact's id"""
+  contactId: String
+
+  """Created data"""
+  createdOn: String!
+
+  """Credit of Transactions"""
+  credit: Float!
+
+  """Date"""
+  date: String
+
+  """Debit of Transactions"""
+  debit: Float!
+
+  """Deleted data"""
+  deleteOn: String
+
+  """Description of Transactions"""
+  description: String
+
+  """Get entry"""
+  entry: Entry!
+
+  """Entry's id"""
+  entryId: String!
+
+  """Reference of Transactions"""
+  reference: String
+
+  """Task's id"""
+  taskId: String
+
+  """Type of Transactions"""
+  type: String!
+
+  """Updated data"""
+  updatedOn: String
+}
+
+input UpdateAccountInput {
+  """account's background color"""
+  bg: String
+  id: String!
+
+  """account's programming language logo URL"""
+  image: String
+
+  """account's programming language"""
+  language: String
+}
+
+input UpdateContactInput {
+  """Related company"""
+  companyId: String
+  id: String!
+
+  """Contact name"""
+  name: String
+
+  """Contact  type"""
+  type: String
+}
+
+input UpdateEntryInput {
+  """entry's background color"""
+  bg: String
+  id: String!
+
+  """entry's programming language logo URL"""
+  image: String
+
+  """entry's programming language"""
+  language: String
+}
+
+input UpdateTransactionInput {
+  """Account's id"""
+  accountId: String
+
+  """Amount"""
+  amount: Float
+
+  """Contact's id"""
+  contactId: String
+
+  """Credit"""
+  credit: Float
+
+  """Debit"""
+  debit: Float
+
+  """Transaction's description"""
+  description: String
+
+  """Entry's id"""
+  entryId: String
+  id: String!
+
+  """Transaction's reference"""
+  reference: String
+
+  """Task's id"""
+  taskId: String
+
+  """Contact  type"""
+  type: String
+}
+
+input UpdateUserInput {
+  """user's email"""
+  email: String
+
+  """user's id"""
+  id: String!
+
+  """user's last name"""
+  lastName: String
+
+  """user's name"""
+  name: String
+
+  """user's password"""
+  password: String
+
+  """user's roles"""
+  roles: [String!]
+}
+
+type User {
+  """user's _id"""
+  _id: String
+
+  """user's company"""
+  companyId: String!
+
+  """user's email"""
+  email: String!
+
+  """user's last name"""
+  lastName: String!
+
+  """user's name"""
+  name: String!
+
+  """user's password"""
+  password: String!
+
+  """user's roles"""
+  roles: [String!]!
+}
